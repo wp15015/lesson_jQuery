@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(function(){
+		$("input").val("入力してください").css("color","#ccc").focus(function(){
+			$(this).val("").css("color","#000");
+		});
+	});
+	</script>
+</head>
+<body>
+	お名前：<input type="text" value="">
+</body>
+</html>
