@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(function(){
+		$("button#show").click(function(){
+			$("div:not(:animated)").show("slow",function(){
+				$(this).css("background","blue");
+			});
+		})
+		$("button#hide").click(function(){
+			$("div:not(:animated)").hide("slow");
+		});
+	});
+	</script>
+	<style>
+	div{
+		width:200px;
+		height: 200px;
+		background:red;
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<button id="show">表示</button>
+	<button id="hide">非表示</button>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(function(){
+		$("button#fade100").click(function(){
+			$("img:not(:animated)").fadeTo("slow",1);
+		});
+		$("button#fade50").click(function(){
+			$("img:not(:animated)").fadeTo("slow",0.5);
+		});
+		$("button#fade0").click(function(){
+			$("img:not(:animated)").fadeTo("slow",0);
+		});
+	});
+	</script>
+	<style>
+	img{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<button id="fade100">表示</button>
+	<button id="fade50">半透明</button>
+	<button id="fade0">非表示</button>
+	<p><img src="flower.jpg" height="267" width="400" alt="flower"></p>
+	<p>画像の下に表示される文章です。</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(function(){
+		$("dt").click(function(){
+			$("dd:not(:animated)").slideToggle("slow");
+		});
+	});
+	</script>
+	<style>
+	dl{
+		width:300px;
+		margin:auto;
+	}
+	dl dt{
+		background:#7cadb6;
+		cursor:pointer;
+	}
+	dl dd{
+		border: 1px solid #7cadb6;
+		height: 300px;
+		margin: 0px;
+	}
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>スライドして表示を切り替える</dt>
+		<dd>
+			slideDown()とslideUp()、show()やhide()とは違いスライドアニメーションで表示非表示を切り替える命令です。
+		</dd>
+	</dl>
+</body>
+</html>

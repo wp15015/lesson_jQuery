@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(function(){
+		$("button#fadeIn").click(function(){
+			$("img:not(:animated)").fadeIn("slow");
+		});
+		$("button#fadeOut").click(function(){
+			$("img:not(:animated)").fadeOut("slow");
+		});
+	});
+	</script>
+	<style>
+	img{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<button id="fadeIn">表示</button>
+	<button id="fadeOut">非表示</button>
+	<p><img src="flower.jpg" height="267" width="400" alt="flower"></p>
+</body>
+</html>
