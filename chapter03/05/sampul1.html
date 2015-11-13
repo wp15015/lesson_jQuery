@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+
+	$(function(){
+		$("span.tooltip").css({
+			"opacity":"0.9",
+			"position":"absolute",
+			"display":"none"
+		});
+		$("a").mouseover(function(){
+			$("span.tooltip").fadeIn();
+		}).mouseout(function(){
+			$("span.tooltip").fadeOut(3000);
+		}).mousemove(function(e){
+			$("span.tooltip").css({
+				"top":e.pageY + 10 +"px",
+				"left":e.pageX + 10 +"px"
+			});
+		});
+	});
+
+	</script>
+	<style>
+		span.tooltip{
+			line-height: 1.5;
+			color: white;
+			width: 200px;
+			background: #ff9900;
+			border: 2px solid white;
+			padding: 1em;
+			font-size: small;
+			//position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<a href="#">tooltip sample</a><span class="tooltip">これは<br><strong>Ｗｅｂ制作現場で使うjQueryデザイン入門</strong><br>のサンプルプログラムです</span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</body>
+</html>

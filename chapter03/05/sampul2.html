@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(function(){
+		$("div.tooltip").css("opacity","0.8").hide();
+		$("a").mouseover(function(){
+			$("div.tooltip").fadeIn().css({
+				"top":$(this).offset().top - 20 + "px",
+				"left":$(this).offset().left + $(this).width() + "px"
+			});
+		}).mouseout(function(){
+			$("div.tooltip").fadeOut();
+		});
+	});
+	</script>
+	<style>
+		div.tooltip{
+			width: 230px;
+			position: absolute;
+		}
+		div.tooltip p{
+			line-height: 1.5;
+			margin: 0;
+			font-size: small;
+			background: url(images/tooltipBody.gif) top right;
+			padding: 10px 5px 0 40px;
+		}
+		div.tooltip img{
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<a href="http://ascii.jp/elem/000/000/438/438206">tooltip sample</a>キストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+	<div class="tooltip">
+		<p>これは<br>
+		<strong>Ｗｅｂ制作の現場で使うjqueryデザイン入門のサンプルプログラムです</strong></p>
+		<img src="images/tooltipFoot.gif" height="10" width="230" alt="">
+	</div>
+</body>
+</html>
