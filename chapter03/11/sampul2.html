@@ -38,6 +38,13 @@
 			});
 		});
 
+		var timerID = setInterval(function(){
+			$("#carouselNext").click();
+		},5000);
+		$("#carouselPrev img,#carouselNext img").click(function(){
+			clearInterval(timerID);
+		});
+
 	});
 
 	</script>

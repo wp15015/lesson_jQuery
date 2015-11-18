@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$(function(){
+
+		//ページへのリンクの設定
+		$("#slide li").each(function(){
+			$("#paging").append(
+				$("<li></li>").attr("data-img",
+				$("img",this).attr("src")
+				)
+				);
+		});
+		$("#paging li:first-child").addClass("active");
+
+		//右矢印ボタンが押下された際の挙動
+		$("#nav .next").click(function(){
+			$("#slide:not(:animated)").animate({
+				"margin-left":-1*$("#slide li").width()
+			},function(){
+				$("#slide").css("margin-left","0");
+				$("#slide").append($("#slide li:first-child"));
+				$("#paging li.active").removeClass("active");
+				$("#paging li[data-img='"+$("#slide li:first-child img").attr("src")+"']").addClass("active");
+			});
+		});
+
+		//左矢印ボタンが押された時の挙動
+		$("#nav .prev").click(function(){
+			$("#slide:not(:animated)")
+			.css("margin-left",-1*$("#slide li").width())
+			.prepend($("#slide li:last-child"))
+			.animate({
+				"margin-left":0
+			},function(){
+				$("#paging li.active").removeClass("active");
+				$("#paging li[data-img='"+$("#slide li:first-child img").attr("src")+"']").addClass("active");
+			});
+		});
+	
+	});
+	</script>
+	<style>
+      *{
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+      }
+      #container{
+         width: 650px;
+         margin: 100px auto;
+      }
+      #slideGalley{
+         width: 650px;
+         /*overflow: hidden;*/
+         position: relative;
+      }
+      #slide{
+         width: 10000px;
+      }
+      #slide li{
+         float: left;
+      }
+      #paging{
+         text-align: center;
+         position: absolute;
+         width: 100%;
+         bottom: 10px;
+      }
+      #paging li{
+         display: inline-block;
+         *display: inline;
+         *zoom: 1;
+         width: 20px;
+         height: 20px;
+         background: url(images/page.png);
+      }
+      #paging li.active{
+         background: url(images/page_active.png);
+      }
+      #nav .prev{
+         position: absolute;
+         left: 10px;
+         top: 50%;
+         margin-top: -50px;
+      }
+      #nav .next{
+         position: absolute;
+         right: 10px;
+         top: 50%;
+         margin-top: -50px;
+      }
+   </style>
+</head>
+<body>
+	<div id="container">
+		<div id="slideGalley">
+			<ul id="slide">
+				<li><a href="#"><img src="images/photo01.jpg" height="488" width="650" alt=""></a></li>
+				<li><a href="#"><img src="images/photo02.jpg" height="488" width="650" alt=""></a></li>
+				<li><a href="#"><img src="images/photo03.jpg" height="488" width="650" alt=""></a></li>
+				<li><a href="#"><img src="images/photo04.jpg" height="488" width="650" alt=""></a></li>
+			</ul>
+			<div id="nav">
+				<img src="images/nav_prev.png" height="100" width="50" alt="前へ" class="prev">
+				<img src="images/nav_next.png" height="100" width="50" alt="次へ" class="next">
+			</div>
+			<ul id="paging"></ul>
+		</div>
+	</div>
+</body>
+</html>
